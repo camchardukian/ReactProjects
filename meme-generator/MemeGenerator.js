@@ -3,19 +3,29 @@ import React, {Component} from "react"
 class MemeGenerator extends Component {
     constructor() {
         super()
-        this.state ={
+        this.state = {
             topText: "",
             bottomText: "",
-            randomImage: "http://i.imgflip.com/1bij.jpg"
+            randomImg: "http://i.imgflip.com/1bij.jpg",
+            allMemeImgs: []
         }
+    }
+    
+    componentDidMount() {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(response => response.json())
+        .then(data => {
+            this.setState({allMemeImgs: data})
+            console.log(this.state.allMemeImgs)
+            /* above console.log is to verify (until we get further along in the project) that I successfully set the state of allMemeImgs to the data we got back from our API call.
+            */
+        })
     }
     
     render() {
         return (
-            <div>
+          
             <h1>MEME GENERATOR SECTION</h1>
-            <h2> Let's test to make sure state is working properly by displaying the current state of this.state.randomImage. If we are successful, we should see an image URL here --> {this.state.randomImage} </h2>
-            </div>
         )
     }
 }
