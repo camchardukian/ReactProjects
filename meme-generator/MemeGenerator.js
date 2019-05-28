@@ -10,7 +10,7 @@ class MemeGenerator extends Component {
             allMemeImgs: []
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
     
     componentDidMount() {
@@ -18,31 +18,34 @@ class MemeGenerator extends Component {
             .then(response => response.json())
             .then(response => {
                 const {memes} = response.data
-                this.setState({ allMemeImgs: memes })
+                this.setState({
+                    allMemeImgs: memes,
+                })
             })
     }
     
     handleChange(event) {
+             
         const {name, value} = event.target
-        this.setState({ [name]: value })
+        this.setState({ [name]: value})
     }
     
-    handleSubmit () {
+    handleClick (event) {
+        event.preventDefault();
         const randomNumber = Math.floor(Math.random()*this.state.allMemeImgs.length)
-        console.log([this.state.allMemeImgs["url"]])
-        // currently stuck on this part
-    }
+            let randomUrl;
+            this.state.allMemeImgs[randomNumber]["url"] ? randomUrl = this.state.allMemeImgs[randomNumber]["url"] : randomUrl = "https://i.imgflip.com\/2cp1.jpg"
+            // above code attempts to keep users busy if they click generate meme before the API call has finished loading. It's a bit of a "hacky" solution, but it's the best I can figure out as of now.
+            this.setState({
+                randomImg: randomUrl
+            })
+            
+}   
     
-    /**
-     * Create a method that, when the "Gen" button is clicked, chooses one of the
-     * memes from our `allMemeImgs` array at random and makes it so that is the
-     * meme image that shows up in the bottom portion of our meme generator site (`.url`)
-     */
-    
-    render(allMemeImgs) {
+    render() {
         return (
             <div>
-                <form className="meme-form" onSubmit = {this.handleSubmit}>
+                <form className="meme-form">
                     <input 
                         type="text"
                         name="topText"
@@ -57,11 +60,13 @@ class MemeGenerator extends Component {
                         value={this.state.bottomText}
                         onChange={this.handleChange}
                     /> 
-                
-                    <button>Gen</button>
+                <div>
+                    <button onClick = {this.handleClick}>Gen</button>
+                    </div>
                 </form>
                 <div className="meme">
-                    <img src={this.state.randomImg} alt="" />
+                <img src={this.state.randomImg} alt="" />
+                
                     <h2 className="top">{this.state.topText}</h2>
                     <h2 className="bottom">{this.state.bottomText}</h2>
                 </div>
