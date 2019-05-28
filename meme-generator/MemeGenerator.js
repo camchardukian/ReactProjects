@@ -9,6 +9,8 @@ class MemeGenerator extends Component {
             randomImg: "http://i.imgflip.com/1bij.jpg",
             allMemeImgs: []
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     componentDidMount() {
@@ -16,33 +18,53 @@ class MemeGenerator extends Component {
             .then(response => response.json())
             .then(response => {
                 const {memes} = response.data
-                console.log(memes[0])
                 this.setState({ allMemeImgs: memes })
             })
-            this.handleChange = this.handleChange.bind(this)
     }
     
-  handleChange (event) {
-      const {name, value} = event.target
-      this.setState({
-          [name]: value
-      })
-  }
+    handleChange(event) {
+        const {name, value} = event.target
+        this.setState({ [name]: value })
+    }
     
-    render() {
+    handleSubmit () {
+        const randomNumber = Math.floor(Math.random()*this.state.allMemeImgs.length)
+        console.log([this.state.allMemeImgs["url"]])
+        // currently stuck on this part
+    }
+    
+    /**
+     * Create a method that, when the "Gen" button is clicked, chooses one of the
+     * memes from our `allMemeImgs` array at random and makes it so that is the
+     * meme image that shows up in the bottom portion of our meme generator site (`.url`)
+     */
+    
+    render(allMemeImgs) {
         return (
             <div>
-                <form className="meme-form">
-                
-                <input type = "text" name = "topText" value = {this.state.topText} onChange={this.handleChange}/>
-                
-                <input type = "text" name = "bottomText" value = {this.state.bottomText} onChange={this.handleChange} />
-                    
-                    
+                <form className="meme-form" onSubmit = {this.handleSubmit}>
+                    <input 
+                        type="text"
+                        name="topText"
+                        placeholder="Top Text"
+                        value={this.state.topText}
+                        onChange={this.handleChange}
+                    /> 
+                    <input 
+                        type="text"
+                        name="bottomText"
+                        placeholder="Bottom Text"
+                        value={this.state.bottomText}
+                        onChange={this.handleChange}
+                    /> 
                 
                     <button>Gen</button>
                 </form>
-                <p> Let's test if we implemented our inputs' onChange event handlers and handleChange method correctly. If so, when we type text in the above forms we should see it render in real-time here --> {this.state.topText} {this.state.bottomText} </p>
+                <div className="meme">
+                    <img src={this.state.randomImg} alt="" />
+                    <h2 className="top">{this.state.topText}</h2>
+                    <h2 className="bottom">{this.state.bottomText}</h2>
+                </div>
             </div>
         )
     }
