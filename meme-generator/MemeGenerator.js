@@ -13,19 +13,37 @@ class MemeGenerator extends Component {
     
     componentDidMount() {
         fetch("https://api.imgflip.com/get_memes")
-        .then(response => response.json())
-        .then(data => {
-            this.setState({allMemeImgs: data})
-            console.log(this.state.allMemeImgs)
-            /* above console.log is to verify (until we get further along in the project) that I successfully set the state of allMemeImgs to the data we got back from our API call.
-            */
-        })
+            .then(response => response.json())
+            .then(response => {
+                const {memes} = response.data
+                console.log(memes[0])
+                this.setState({ allMemeImgs: memes })
+            })
+            this.handleChange = this.handleChange.bind(this)
     }
+    
+  handleChange (event) {
+      const {name, value} = event.target
+      this.setState({
+          [name]: value
+      })
+  }
     
     render() {
         return (
-          
-            <h1>MEME GENERATOR SECTION</h1>
+            <div>
+                <form className="meme-form">
+                
+                <input type = "text" name = "topText" value = {this.state.topText} onChange={this.handleChange}/>
+                
+                <input type = "text" name = "bottomText" value = {this.state.bottomText} onChange={this.handleChange} />
+                    
+                    
+                
+                    <button>Gen</button>
+                </form>
+                <p> Let's test if we implemented our inputs' onChange event handlers and handleChange method correctly. If so, when we type text in the above forms we should see it render in real-time here --> {this.state.topText} {this.state.bottomText} </p>
+            </div>
         )
     }
 }
