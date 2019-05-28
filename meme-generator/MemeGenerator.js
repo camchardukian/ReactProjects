@@ -1,16 +1,21 @@
-import React from "react"
+import React, {Component} from "react"
 
-class MemeGenerator extends React.Component {
-    constructor () {
-        super ()
-        this.state = {
-            
+class MemeGenerator extends Component {
+    constructor() {
+        super()
+        this.state ={
+            topText: "",
+            bottomText: "",
+            randomImage: "http://i.imgflip.com/1bij.jpg"
         }
     }
     
-    render () {
+    render() {
         return (
-            <h2> We'll later display something from our API call here. </h2>
+            <div>
+            <h1>MEME GENERATOR SECTION</h1>
+            <h2> Let's test to make sure state is working properly by displaying the current state of this.state.randomImage. If we are successful, we should see an image URL here --> {this.state.randomImage} </h2>
+            </div>
         )
     }
 }
