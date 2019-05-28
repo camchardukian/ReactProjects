@@ -1,25 +1,21 @@
 import React from "react"
-class App extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            sampleState: "Your sample state is here"
-        }
-    }
+import Header from "./Header"
+import MemeGenerator from "./MemeGenerator"
+/**
+ * Create 2 new components - Header and MemeGenerator
+ * Header will only display things
+ * MemeGenerator will be calling to an API and holding on to data
+ * Each should be in their own file of the same name
+ */
 
-    
-    
-    // insert class methods here
-    
-    
-    
-    render () {
-        return (
-            <h1> {this.state.sampleState} </h1>
-        )
-    }
-    
-    
+function App() {
+    return (
+        <div>
+        <Header />
+        <h1>Hello world!</h1>
+        <MemeGenerator />
+        </div>
+    )
 }
 
 export default App

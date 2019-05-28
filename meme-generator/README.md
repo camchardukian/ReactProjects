@@ -1,2 +1,16 @@
-This is a MEME generator I built as my capstone project for Scrimba's
-[*Learn React for Free* course](https://scrimba.com/playlist/p7P5Hd).
+# Local edits at 2:46
+
+Quick start:
+
+```
+$ npm install
+$ npm run build
+````
+
+## Development
+
+Run Webpack in watch-mode to continually compile the JavaScript as you work:
+
+```
+$ npm run watch
+```
