@@ -1,0 +1,27 @@
+h2 {
+    margin-top: 35px;
+}
+
+h5 {
+    color: #C7C7CD;
+}
+
+form input {
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+form label {
+   margin-right: 10px;
+}
+
+.image {
+    width: 10rem;
+    border-radius: 100%;
+    transition-duration: 2s;
+    transition-property: opacity;
+}
+
+.image:hover {
+    opacity: .6;
+}
