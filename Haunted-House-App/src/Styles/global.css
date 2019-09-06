@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+    color: #DDD;
+}
+
+h2 {
+    text-align: center;
+}
+
+body {
+    background-color: gray;
+}
+
+img {
+    display: block;
+    max-width: 400px;
+    margin: auto;
+}
+
+.btn-container {
+    text-align: center;
+}
+.button1 {
+    width: 30%;
+    padding: 40px !important;
+    margin: 10px 10px !important;
+    background-color: purple !important;
+    border: 1px solid red !important;
+}
+.button2 {
+    width: 30%;
+    padding: 40px !important;
+    margin: 10px 10px;
+    background-color: purple !important;
+    border: 1px solid red !important;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.cursive {
+    font-family: cursive;
+}
