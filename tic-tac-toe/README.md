@@ -2,8 +2,7 @@ Here's a simple project I made by following the tutorial here: https://reactjs.o
 
 Building this project was a great refresher on props, and also useful for learning about
 and reviewing best practices in React.
-
-###
+___
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
