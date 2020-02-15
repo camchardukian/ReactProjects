@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import ClearButton from './ClearButton';
 import './style.scss'
 
 const Calculator = () => {
-    const [randomNumber, setRandomNumber] = useState(0);
+    // let [displayAreaNumber, setRandomNumber] = useState(0);
+    // const resetDisplayNumber = () => setState({displayAreaNumber});
+    // const [displayAreaNumber] = useState
         return (
             <div className="calculator-page-container">
                 <div className="calculator-container">
-                <div className="calculator-display-area">{randomNumber}</div>
+                <div className="calculator-display-area"></div>
                 <div className="calculator-top-flex-container">
-                    <button className="calculator-arithmetic-operator"><span>AC</span></button>
+                    <ClearButton />
                     <button className="calculator-arithmetic-operator"><span>±</span></button>
                     <button className="calculator-arithmetic-operator"><span>%</span></button>
                     <button className="calculator-arithmetic-operator"><span>÷</span></button>
@@ -29,8 +32,7 @@ const Calculator = () => {
                     </div>
                     <div className="calculator-bottom-flex-container">
                         <button className="calculator-number-btn"><span>0</span></button>
-                        <button className="calculator-arithmetic-operator"
-                        onClick={() => setRandomNumber(Math.random()*Math.random()*100/Math.random())}>
+                        <button className="calculator-arithmetic-operator">
                         <span>random number</span>
                         </button>
                         <button className="calculator-arithmetic-operator"><span>.</span></button>
