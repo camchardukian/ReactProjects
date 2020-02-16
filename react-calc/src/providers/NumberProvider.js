@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 export const NumberContext = React.createContext();
 
 const NumberProvider = props => {
-  const [number, setNumber] = useState('')
+  const [number, setNumber] = useState('');
+  const [storedNumber, setStoredNumber] = useState('');
 
 const handleSetDisplayValue = num => {
   if (!number.includes('.') || num !== '.') {
@@ -11,10 +12,14 @@ const handleSetDisplayValue = num => {
   }
 };
 
-const handleClearValue = () => {
+const handleSetStoredValue = () => {
+  setStoredNumber(number);
   setNumber('');
 }
-
+const handleClearValue = () => {
+  setNumber('');
+  setStoredNumber('');
+}
 
 return (
   <NumberContext.Provider
