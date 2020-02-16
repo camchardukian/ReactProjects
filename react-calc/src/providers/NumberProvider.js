@@ -14,19 +14,31 @@ const handleSetDisplayValue = num => {
 
 const handleSetStoredValue = () => {
   setStoredNumber(number);
+  console.log('sfr');
   setNumber('');
 }
-const handleClearValue = () => {
+
+const handleClearValues = () => {
+  console.log('clearr attempt');
   setNumber('');
   setStoredNumber('');
+}
+
+const handleChooseOperatorType = () => {
+  // I know this function will set the operator type, but I'm feeling a bit too tired to
+  // finish implementing it during this coding session. I'll get to it during my next session.
 }
 
 return (
   <NumberContext.Provider
   value={{
-    handleClearValue,
+    handleClearValues,
     handleSetDisplayValue,
-    number
+    handleSetStoredValue,
+    number,
+    setNumber,
+    storedNumber, 
+    setStoredNumber
   }}
   >
   {props.children}

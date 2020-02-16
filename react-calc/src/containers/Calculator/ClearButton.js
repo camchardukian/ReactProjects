@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { NumberContext } from '../../providers/NumberProvider.js'
 
 const ClearButton = () => {
-  const { handleClearValue } = useContext(NumberContext);
+  const { handleClearValues } = useContext(NumberContext);
   return (
-    <button type="button" className="calculator-arithmetic-operator" onClick={() => handleClearValue()}>
+    <button type="button" className="calculator-arithmetic-operator" onClick={() => handleClearValues()}>
     AC
     </button>
   )
