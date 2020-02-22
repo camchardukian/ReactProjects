@@ -5,6 +5,7 @@ export const NumberContext = React.createContext();
 const NumberProvider = props => {
   const [number, setNumber] = useState('');
   const [storedNumber, setStoredNumber] = useState('');
+  const [operatorType, setOperatorType] = useState('');
 
 const handleSetDisplayValue = num => {
   if (!number.includes('.') || num !== '.') {
@@ -12,21 +13,30 @@ const handleSetDisplayValue = num => {
   }
 };
 
+const handleClearNumber = () => {
+  console.log('eeee')
+  setNumber('')
+  setNumber('')
+}
+
 const handleSetStoredValue = () => {
+  console.log('the number is...', number)
   setStoredNumber(number);
-  console.log('sfr');
+  console.log('the stored number is...', storedNumber);
   setNumber('');
+  console.log('the fnal number is', number)
 }
 
 const handleClearValues = () => {
-  console.log('clearr attempt');
+  console.log('clearr attempt', number);
   setNumber('');
   setStoredNumber('');
 }
 
-const handleChooseOperatorType = () => {
-  // I know this function will set the operator type, but I'm feeling a bit too tired to
-  // finish implementing it during this coding session. I'll get to it during my next session.
+const handleChooseOperatorType = (opType) => {
+  handleSetStoredValue();
+  setOperatorType(opType)
+
 }
 
 return (
@@ -35,6 +45,9 @@ return (
     handleClearValues,
     handleSetDisplayValue,
     handleSetStoredValue,
+    handleChooseOperatorType,
+    handleClearNumber,
+    operatorType,
     number,
     setNumber,
     storedNumber, 

@@ -17,19 +17,19 @@ const Calculator = () => {
                         <ClearButton />
                         <button className="calculator-arithmetic-operator"><span>±</span></button>
                         <button className="calculator-arithmetic-operator"><span>%</span></button>
-                        <OperatorButton operatorType={'÷'} />
+                        <OperatorButton opType={'÷'} />
                     </div>
 
                     <div className="calculator-middle-flex-container">
-                        <OperatorButton operatorType={'x'} />
+                        <OperatorButton opType={'x'} />
                         <NumberButton buttonNumberValue={9} />
                         <NumberButton buttonNumberValue={8} />
                         <NumberButton buttonNumberValue={7} />
-                        <OperatorButton operatorType={'+'} />
+                        <OperatorButton opType={'+'} />
                         <NumberButton buttonNumberValue={6} />
                         <NumberButton buttonNumberValue={5} />
                         <NumberButton buttonNumberValue={4} />
-                        <OperatorButton operatorType={'-'} />
+                        <OperatorButton opType={'-'} />
                         <NumberButton buttonNumberValue={3} />
                         <NumberButton buttonNumberValue={2} />
                         <NumberButton buttonNumberValue={1} />
