@@ -8,35 +8,51 @@ const NumberProvider = props => {
   const [operatorType, setOperatorType] = useState('');
 
 const handleSetDisplayValue = num => {
+  console.log('display rannnn')
   if (!number.includes('.') || num !== '.') {
     setNumber(`${(number + num).replace(/^0+/, '')}`);
   }
 };
 
 const handleClearNumber = () => {
-  console.log('eeee')
-  setNumber('')
-  setNumber('')
+  handleSetStoredValue();
 }
 
 const handleSetStoredValue = () => {
-  console.log('the number is...', number)
   setStoredNumber(number);
-  console.log('the stored number is...', storedNumber);
   setNumber('');
-  console.log('the fnal number is', number)
 }
 
 const handleClearValues = () => {
-  console.log('clearr attempt', number);
   setNumber('');
   setStoredNumber('');
+  setOperatorType('');
 }
 
 const handleChooseOperatorType = (opType) => {
-  handleSetStoredValue();
-  setOperatorType(opType)
+  if (number) {
+    handleSetStoredValue();
+    console.log('11111')
+    setOperatorType(opType)
+  }
+  if (storedNumber) {
+    console.log('22222')
+    setOperatorType(opType)
+  }
+}
 
+const handleCalculations = () => {
+  console.log('calc number', number, 'calcstored', storedNumber)
+  if (number && storedNumber) {
+  const myValue = Number(number) + Number(storedNumber)
+  setNumber(myValue);
+  console.log('rrrr')
+  console.log('numbererrrr', number)
+  }
+  handleSetStoredValue('')
+  // I need the above function to reset the stored value
+  // but if I call that function it seems the setNumber(myValue) does not work correctly.
+  console.log('calc number end', number, 'calcstored end', storedNumber)
 }
 
 return (
@@ -47,6 +63,7 @@ return (
     handleSetStoredValue,
     handleChooseOperatorType,
     handleClearNumber,
+    handleCalculations,
     operatorType,
     number,
     setNumber,
