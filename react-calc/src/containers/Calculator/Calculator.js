@@ -1,6 +1,7 @@
 import React from 'react';
 import ClearButton from './ClearButton';
 import Display from './Display';
+import DecimalButton from './DecimalButton';
 import EqualsButton from './EqualsButton';
 import NumberButton from './NumberButton';
 import OperatorButton from './OperatorButton';
@@ -39,7 +40,7 @@ const Calculator = () => {
                     <div className="calculator-bottom-flex-container">
                         <NumberButton buttonNumberValue={0} />
                         <RandomButton />
-                        <button className="calculator-arithmetic-operator"><span>.</span></button>
+                        <DecimalButton />
                         <EqualsButton />
                     </div>
                 </div>
