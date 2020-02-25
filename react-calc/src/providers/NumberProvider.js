@@ -11,6 +11,8 @@ const NumberProvider = props => {
 const handleSetDisplayValue = num => {
   // if (!number.includes('.') || num !== '.') {
     // setNumber(`${(number + num).replace(/^0+/, '')}`);
+    console.log('number', number, 'storedNumber', storedNumber, 'enteringNumber', enteringNumber)
+
     if(!number){
       setNumber(num);
       setEnteringNumber(num);
@@ -18,7 +20,6 @@ const handleSetDisplayValue = num => {
       setNumber(Number('' + number + num));
       setEnteringNumber(Number('' + number + num ));
     }
-    
   // }
 };
 const handleSetRandomValue = num => {
@@ -50,6 +51,13 @@ const handleChooseOperatorType = (opType) => {
   }
 }
 
+const handleAddDecimal = () => {
+  let copyEnteringNumber = enteringNumber;
+  copyEnteringNumber = copyEnteringNumber + '.';
+  setEnteringNumber(copyEnteringNumber);
+  setNumber(copyEnteringNumber);
+}
+
 const handleCalculations = () => {
   if (number && storedNumber) {
     let result = 0;
@@ -69,7 +77,7 @@ const handleCalculations = () => {
       default:
       return null;
     }
-    
+    // result = Math.round(result*100)/100;
     setStoredNumber(result);
     setEnteringNumber(result);
     setNumber(0);
@@ -85,13 +93,14 @@ return (
     handleChooseOperatorType,
     handleClearNumber,
     handleCalculations,
+    handleAddDecimal,
+    handleSetRandomValue,
     operatorType,
     number,
     setNumber,
     storedNumber, 
     setStoredNumber,
     enteringNumber,
-    handleSetRandomValue
   }}
   >
   {props.children}

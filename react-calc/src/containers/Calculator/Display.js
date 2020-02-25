@@ -5,7 +5,7 @@ const Display = () => {
   const { number, storedNumber, enteringNumber, operatorType } = useContext(NumberContext);
   return (
     <div>
-      <h2> {enteringNumber}</h2>
+      <h2>{enteringNumber}</h2>
       <p> 
         {(!storedNumber && !number) && 'Current numbers will appear here'}
         {(!storedNumber && number) ? `${number} ${operatorType} ` : ''}
