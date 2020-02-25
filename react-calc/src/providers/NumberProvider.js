@@ -38,6 +38,7 @@ const handleSetStoredValue = () => {
 const handleClearValues = () => {
   setNumber(0);
   setStoredNumber(0);
+  setEnteringNumber(0);
   setOperatorType('');
 }
 
@@ -47,9 +48,6 @@ const handleChooseOperatorType = (opType) => {
   if (number) {
     handleSetStoredValue();
   }
-  // if (storedNumber) {
-  //   setOperatorType(opType)
-  // }
 }
 
 const handleCalculations = () => {
@@ -68,16 +66,14 @@ const handleCalculations = () => {
       case '÷':
         result = Number(storedNumber) / Number(number);
       break;
+      default:
+      return null;
     }
     
     setStoredNumber(result);
     setEnteringNumber(result);
     setNumber(0);
   }
-  // handleSetStoredValue('')
-  // I need the above function to reset the stored value
-  // but if I call that function it seems the setNumber(myValue) does not work correctly.
-  // console.log('calc number end', number, 'calcstored end', storedNumber)
 }
 
 return (
