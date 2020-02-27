@@ -48,8 +48,25 @@
         background-color: purple;
         margin-bottom: 8px;
         span {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
+        }
+        .clear-text {
+            font-size: 18px;
+        }
+    }
+    .exponent-button {
+        display: flex;
+        justify-content: center;
+        div {
+            font-weight: bold;
+        }
+        div:first-of-type {
+            font-size: 22px;
+            margin-left: 5.5px;
+        }
+        div:nth-of-type(2) {
+            transform: rotate(-1deg);
         }
     }
     .random-number-operator {

@@ -5,7 +5,7 @@ const ClearButton = () => {
   const { handleClearValues } = useContext(NumberContext);
   return (
     <button type="button" className="calculator-arithmetic-operator" onClick={() => handleClearValues()}>
-    AC
+      <span className="clear-text">AC</span>
     </button>
   )
 }
