@@ -59,6 +59,14 @@ const handleAddDecimal = () => {
   }
 }
 
+const handleInvertEnteringNumber = () => {
+  const invertedNumber = enteringNumber * -1;
+  if (number !== 0) {
+    setEnteringNumber(invertedNumber)
+    setNumber(invertedNumber)
+  }
+}
+
 const handleCalculations = () => {
   if (number && storedNumber) {
     let result = 0;
@@ -96,6 +104,7 @@ return (
     handleCalculations,
     handleAddDecimal,
     handleSetRandomValue,
+    handleInvertEnteringNumber,
     operatorType,
     number,
     setNumber,
