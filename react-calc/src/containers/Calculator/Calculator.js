@@ -3,6 +3,7 @@ import ClearButton from './ClearButton';
 import Display from './Display';
 import DecimalButton from './DecimalButton';
 import EqualsButton from './EqualsButton';
+import InvertButton from './InvertButton';
 import NumberButton from './NumberButton';
 import OperatorButton from './OperatorButton';
 import RandomButton from './RandomButton';
@@ -17,7 +18,7 @@ const Calculator = () => {
                     </div>
                     <div className="calculator-top-flex-container">
                         <ClearButton />
-                        <button className="calculator-arithmetic-operator"><span>±</span></button>
+                        <InvertButton />
                         <button className="calculator-arithmetic-operator"><span>%</span></button>
                         <OperatorButton opType={'÷'} />
                     </div>
