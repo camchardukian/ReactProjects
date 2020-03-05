@@ -26,8 +26,9 @@ const handleClearNumber = () => {
   handleSetStoredValue();
 }
 
-const handleSetStoredValue = () => {
+const handleSetStoredValue = (willSetNumber) => {
   setStoredNumber(number);
+  if (willSetNumber)
   setNumber(0);
 }
 
@@ -42,8 +43,11 @@ const handleChooseOperatorType = (opType) => {
   setOperatorType(opType)
 
   if (number) {
-    handleSetStoredValue();
-  }
+    if (!storedNumber) {
+      const willSetNumber = true;
+      handleSetStoredValue(willSetNumber)
+    }
+    }
 }
 
 const handleAddDecimal = () => {
