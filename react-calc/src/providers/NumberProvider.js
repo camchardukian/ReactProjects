@@ -9,6 +9,7 @@ const NumberProvider = props => {
   const [operatorType, setOperatorType] = useState('');
 
 const handleSetDisplayValue = num => {
+  if (String(number).length < 12) {
     if(!number){
       setNumber(num);
       setEnteringNumber(num);
@@ -16,6 +17,10 @@ const handleSetDisplayValue = num => {
       setNumber(Number('' + number + num));
       setEnteringNumber(Number('' + number + num ));
     }
+  }
+  else {
+    alert('maximum character limit exceeded')
+  }
 };
 const handleSetRandomValue = num => {
   setNumber(num);
@@ -26,9 +31,8 @@ const handleClearNumber = () => {
   handleSetStoredValue();
 }
 
-const handleSetStoredValue = (willSetNumber) => {
+const handleSetStoredValue = () => {
   setStoredNumber(number);
-  if (willSetNumber)
   setNumber(0);
 }
 
@@ -43,11 +47,8 @@ const handleChooseOperatorType = (opType) => {
   setOperatorType(opType)
 
   if (number) {
-    if (!storedNumber) {
-      const willSetNumber = true;
-      handleSetStoredValue(willSetNumber)
-    }
-    }
+    handleSetStoredValue();
+  }
 }
 
 const handleAddDecimal = () => {
