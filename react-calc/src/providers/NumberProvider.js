@@ -88,11 +88,19 @@ const handleCalculations = () => {
       case '÷':
         result = Number(storedNumber) / Number(number);
       break;
+      case 'to the power of':
+        result = Math.pow(Number(storedNumber), Number(number));
+      break;
       default:
       return null;
     }
     result = Math.round(result*10000)/10000;
     setStoredNumber(result);
+    setEnteringNumber(0);
+    setNumber(0);
+  }
+  else if (storedNumber && operatorType === "to the power of") {
+    setStoredNumber(1);
     setEnteringNumber(0);
     setNumber(0);
   }
