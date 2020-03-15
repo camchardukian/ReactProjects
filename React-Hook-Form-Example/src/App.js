@@ -1,12 +1,13 @@
 import React from 'react';
+import ExampleForm from './components/ExampleForm';
 
 function App() {
   return (
     <div className="App">
 <h2>Our form will be located under here.</h2>
-<p>I will replace this paragraph with the form during my next coding session. :)</p>
+<ExampleForm />
     </div>
   );
 }
-// fsjfdsljfdjlkfjklfndflndfkl
+
 export default App;
