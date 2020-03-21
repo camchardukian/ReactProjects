@@ -7,21 +7,26 @@ const NumberProvider = props => {
   const [storedNumber, setStoredNumber] = useState(0);
   const [enteringNumber, setEnteringNumber] = useState(0);
   const [operatorType, setOperatorType] = useState('');
-
-const handleSetDisplayValue = num => {
-  if (String(number).length < 12) {
-    if(!number){
-      setNumber(num);
-      setEnteringNumber(num);
-    } else {
-      setNumber(Number('' + number + num));
-      setEnteringNumber(Number('' + number + num ));
+  const handleSetDisplayValue = num => {
+    if (String(number).length < 12) {
+      if(!number){
+        setNumber(num);
+        setEnteringNumber(num);
+      } else {
+        if (num === 0) {
+        setNumber("".concat('' + number + num));
+        setEnteringNumber("".concat('' + number + num));
+        }
+        else {
+        setNumber(Number('' + number + num));
+        setEnteringNumber(Number('' + number + num ));
+        }
+      }
     }
-  }
-  else {
-    alert('maximum character limit exceeded')
-  }
-};
+    else {
+      alert('maximum character limit exceeded')
+    }
+  };
 const handleSetRandomValue = num => {
   setNumber(num);
   setEnteringNumber(num);
@@ -94,7 +99,7 @@ const handleCalculations = () => {
       default:
       return null;
     }
-    result = Math.round(result*10000)/10000;
+    result = Math.round(result*10000000000)/10000000000;
     setStoredNumber(result);
     setEnteringNumber(0);
     setNumber(0);
