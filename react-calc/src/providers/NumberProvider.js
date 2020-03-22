@@ -27,7 +27,9 @@ const NumberProvider = props => {
       alert('maximum character limit exceeded')
     }
   };
-const handleSetRandomValue = num => {
+const handleSetRandomValue = () => {
+  console.log('ran')
+  const num = Math.ceil(Math.random()*Math.random()*100/Math.random())
   setNumber(num);
   setEnteringNumber(num);
 }
