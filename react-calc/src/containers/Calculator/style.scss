@@ -1,3 +1,7 @@
+.calculator-container:focus {
+    border: 10px dashed red;
+}
+
 .calculator-container {
     max-width: 375px;
     background-color:black;
@@ -54,6 +58,9 @@
         .clear-text {
             font-size: 18px;
         }
+    }
+    .calculator-arithmetic-operator:focus {
+        border: 10px dashed red;
     }
     .exponent-button {
         display: flex;

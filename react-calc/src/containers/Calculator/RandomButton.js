@@ -4,7 +4,7 @@ import { NumberContext } from '../../providers/NumberProvider.js';
 const RandomButton = () => {
   const { handleSetRandomValue} = useContext(NumberContext);
   const randomNumberGenerator = () => {
-    handleSetRandomValue(Math.ceil(Math.random()*Math.random()*100/Math.random()));
+    handleSetRandomValue();
   }
 
   return (
